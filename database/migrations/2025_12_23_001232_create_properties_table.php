@@ -14,14 +14,13 @@ return new class extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->engine="InnoDB";
             $table->id();
-            $table->string('titre');
+            $table->string('title');
             $table->longText('description');
             $table->integer('surface');
             $table->integer('chambre');
             $table->integer('prix');
             $table->string('ville');
             $table->string('adresse');
-            $table->string('picture')->nullable();
             $table->boolean('sold')->default(false);
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->timestamps();
