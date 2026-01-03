@@ -67,7 +67,7 @@
                     <label class="block text-sm font-medium text-slate-600 mb-1">
                         Adresse email
                     </label>
-                    <input type="email" name="email" required class="input-premium" placeholder="ex: toto@email.com">
+                    <input type="email" name="email" required class="input-premium" placeholder="email">
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
@@ -76,7 +76,7 @@
                     <label class="block text-sm font-medium text-slate-600 mb-1">
                         Mot de passe
                     </label>
-                    <input type="password" name="password" required class="input-premium" placeholder="••••••••">
+                    <input type="password" name="password" required class="input-premium" placeholder="password">
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 

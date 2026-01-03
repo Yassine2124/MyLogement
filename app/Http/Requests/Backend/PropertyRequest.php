@@ -28,7 +28,7 @@ class PropertyRequest extends FormRequest
             'prix'=>['required','integer','min:1000'],
             'ville'=>['required','string','max:255','min:2'],
             'adresse'=>['required','string','max:255','min:2'],
-            'description'=>['required','string','min:5'],
+            'description'=>['required','min:5'],
             'pictures'=>['array'],
             'pictures.*'=>['image','max:2000','mimes:png,jpg']
         ];

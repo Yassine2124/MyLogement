@@ -1,5 +1,12 @@
 import './bootstrap';
 import iziToast from "izitoast";
+import Swiper from 'swiper';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+Swiper.use([Navigation, Pagination, Autoplay]);
+
+window.Swiper = Swiper;
+
 
 window.showToast = (message, type = 'success') => {
     iziToast[type]({

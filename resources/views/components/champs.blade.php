@@ -1,4 +1,11 @@
-  @props(['label','multiple'=>false, 'name', 'type' => 'text', 'select' => false, 'value' => ''])
+  @props([
+      'label',
+      'multiple' => false,
+      'name' => '',
+      'type' => 'text',
+      'select' => false,
+      'value' => '',
+  ])
   @if ($select)
       <div>
           <label class="label-premium">Type de logement</label>
@@ -13,9 +20,11 @@
       <div>
           <label class="label-premium" for="{{ $name }}">{{ $label }}</label> <br>
           @if ($type === 'textarea')
-              <textarea class="input-premium" name="{{ $name }}" id="{{ $name }}">{{ old($name, $value) }}</textarea>
+              <textarea class="input-premium" name="{{ $name }}"
+                  id="{{ $name }}">{{ old($name, $value) }}</textarea>
           @elseif ($type === 'file')
-              <input name="{{ $name . ($multiple ? '[]':'') }}" @if($multiple) multiple @endif type="file"
+              <input name="{{ $name . ($multiple ? '[]' : '') }}"
+                  @if ($multiple) multiple @endif type="file"
                   class="block w-full text-sm text-slate-500
                        file:mr-4 file:py-2 file:px-4
                        file:rounded-lg file:border-0
@@ -27,7 +36,7 @@
           @endif
           @error($name)
               <div class=" text-red-600">
-                {{ $message }}
+                  {{ $message }}
               </div>
           @enderror
       </div>

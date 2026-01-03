@@ -20,7 +20,7 @@
             <tbody class="divide-y" style="min-width: 550px;">
                 @foreach ($properties as $property)
                     <tr>
-                        <td class="py-3 hover:text-blue-700"><a href="#">{{ $property->title }}</a></td>
+                        <td class="py-3 hover:text-blue-700"><a href="{{ route('frontend.property.show',['slug'=>$property->getSlug(),'property'=>$property,'notify'=>0]) }}">{{ $property->title }}</a></td>
                         <td>{{ $property->surface }} m²</td>
                         <td>{{ $property->chambre }} @if ($property->chambre > 1)
                                 chambres
@@ -63,27 +63,7 @@
 
                                 </div>
                             </div>
-                            {{-- <div x-data="{ open: false }" class="relative">
-                                <button class="btn-primary" @click="open = !open" @click.away="open=false"
-                                    class="p-2 rounded-md bg-gray-100">
-                                    Action
-                                </button>
-                                <!-- mobile menu -->
-                                <div x-show="open" x-cloak
-                                    class="absolute right-4 mt-2 w-48 bg-white rounded-md shadow p-3">
-                                    <a class=" text-blue-600" href="#" class="block py-2">Editer</a> <br>
-                                    <a class=" text-red-600" href="#" class="block py-2">Supprimer</a>
-
-                                </div>
-                            </div> --}}
-                            {{-- <a class=" bg-blue-600 px-4 py-1 text-white rounded hover:bg-blue-800 transition"
-                                href="{{ route('property.edit', $property) }}">Editer</a>
-                            <form action="{{ route('property.destroy', $property) }}" method="POST">
-                                @method('DELETE')
-                                @csrf
-                                <button class=" bg-red-500 px-4 py-1 text-white rounded hover:bg-red-700 transition"
-                                    type="submit">Supprimer</button>
-                            </form> --}}
+                           
                         </td>
                     </tr>
                 @endforeach
@@ -92,48 +72,5 @@
         </table>
     </div>
     {{ $properties->links() }}
-    @if (session('success'))
-        <script>
-            iziToast.success({
-                title: 'Succès',
-                message: "{{ session('success') }}",
-                position: 'topRight',
-                timeout: 4000,
-            });
-        </script>
-    @endif
-
-    @if (session('error'))
-        <script>
-            iziToast.error({
-                title: 'Erreur',
-                message: "{{ session('error') }}",
-                position: 'topRight',
-                timeout: 4000,
-            });
-        </script>
-    @endif
-
-    @if (session('info'))
-        <script>
-            iziToast.info({
-                title: 'Info',
-                message: "{{ session('info') }}",
-                position: 'topRight',
-                timeout: 4000,
-            });
-        </script>
-    @endif
-
-    @if (session('warning'))
-        <script>
-            iziToast.warning({
-                title: 'Attention',
-                message: "{{ session('warning') }}",
-                position: 'topRight',
-                timeout: 4000,
-            });
-        </script>
-    @endif
-
+   
 @endsection

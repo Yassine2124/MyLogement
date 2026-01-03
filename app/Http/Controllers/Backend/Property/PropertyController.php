@@ -15,8 +15,9 @@ class PropertyController extends Controller
      */
     public function index()
     {
+        $nbrBien=Property::query()->where('user_id',Auth::user()->id)->count();
         $properties = Property::query()->Recent()->where('user_id', Auth::user()->id)->paginate(5);
-        return view('backend.properties.index', compact('properties'));
+        return view('backend.properties.index', compact('properties','nbrBien'));
     }
 
     /**
@@ -33,6 +34,7 @@ class PropertyController extends Controller
      */
     public function store(PropertyRequest $request)
     {
+        
         $user = Auth::user();
         $data = $request->validated();
         $data['user_id'] = $user->id;

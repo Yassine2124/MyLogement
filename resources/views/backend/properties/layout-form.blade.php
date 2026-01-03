@@ -7,7 +7,10 @@
     <title>@yield('title')</title>
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
-<body class=" bg-gray-100 font-sans px-5">
+<body  class=" bg-gray-100 font-sans max-w-full p-0">
+    <div class=" w-full p-0 m-0">
+        <x-navbar></x-navbar>
+    </div>
    @yield('content')
 </body>
 </html>

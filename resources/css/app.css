@@ -1,5 +1,8 @@
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 @import "izitoast/dist/css/iziToast.min.css";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
 
 @tailwind base;
 @tailwind components;
@@ -26,7 +29,9 @@
 .badge-green {
     @apply bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm;
 }
-
+.mybtn-primary{
+    @apply px-4 py-2 text-white rounded bg-blue-500 hover:bg-blue-700
+}
 @layer components {
 
     .input-premium {
